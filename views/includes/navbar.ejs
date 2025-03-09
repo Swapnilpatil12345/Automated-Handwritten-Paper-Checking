@@ -1,40 +1,83 @@
-<nav class="navbar sticky-top navbar-expand-md bg-body-light border-bottom">
+<nav class="navbar sticky-top navbar-expand-md" style="background-color: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-file-circle-check"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <a class="navbar-brand" href="/" style="font-size: 1.8rem; font-weight: bold; color: #333;">
+      <i class="fa-solid fa-file-circle-check"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarElegant" aria-controls="navbarElegant" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarElegant">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link" href="/">All Papers</a>
+          <a class="nav-link elegant-link" href="/">All Papers</a>
         </li>
-
         <% if (typeof currUser !== "undefined" && currUser) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/papers/summary">Summary</a>
+            <a class="nav-link elegant-link" href="/papers/summary">Summary</a>
           </li>
         <% } %>
-
         <li class="nav-item">
-          <a class="nav-link" href="/papers/new">Add New Papers</a>
+          <a class="nav-link elegant-link" href="/papers/new">Add New Papers</a>
         </li>
       </ul>
-
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto mb-2 mb-md-0">
         <% if (!currUser) { %>
           <li class="nav-item">
-            <a class="nav-link" href="/signup">Signup</a>
+            <a class="nav-link elegant-link" href="/signup">Signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link elegant-link" href="/login">Login</a>
           </li>
         <% } else { %>
           <li class="nav-item">
-            <a class="nav-link btn btn-dark edit-btn" href="/logout">Logout</a>
+            <a class="nav-link elegant-btn" href="/logout">Logout</a>
           </li>
         <% } %>
       </ul>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Elegant Navbar Styles */
+  .elegant-link {
+    font-size: 1.1rem;
+    color: #555;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+  }
+  .elegant-link:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+  .elegant-link.active {
+    font-weight: bold;
+    color: #007bff !important;
+    border-bottom: 2px solid #007bff;
+  }
+  .elegant-btn {
+    font-size: 1.1rem;
+    background-color: #212529;
+    color: #fff !important;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+  }
+  .elegant-btn:hover {
+    background-color: #343a40;
+  }
+</style>
+
+<script>
+  // Auto-add 'active' class based on current URL
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".elegant-link");
+    const currentPath = window.location.pathname;
+    links.forEach(link => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>

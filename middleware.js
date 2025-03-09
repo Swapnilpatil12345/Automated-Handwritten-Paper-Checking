@@ -18,6 +18,18 @@ module.exports.saveRedirectUrl = (req,res,next)=>{
     next();
 }
 
+module.exports.isDean = async (req, res, next)=>{
+    let { id } = req.params;
+
+    // Find the listing and populate the SubjectTeacher field
+    let listing = await Listing.findById(id);
+
+    if(listing.Name.equals(res.locals.currUser.username)){
+        console.log("Dean");
+        req.flash('success', 'Hi Dean');
+        next(); 
+    }
+}
 
 module.exports.isOwner = async (req, res, next) => {
     let { id } = req.params;

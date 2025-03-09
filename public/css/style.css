@@ -58,34 +58,55 @@
   /* Cards */
   
   .card{
-      border: none !important;
+      /* border: none !important;
       margin-bottom: 2rem;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); */
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
   }
   
+
+  .card:hover {
+    transform: translateY(-5px);
+    }
+
   .card-img-top{
-      border-radius: 1rem !important;
-      width: 100% !important;
-      object-fit: cover !important;
+    border-radius: 2rem !important;
+    width: 100% !important;
+    height: 200px;
+    object-fit: cover !important;
   }
   
-  .card-body{
-      padding: 0;
-  }
+  .card-body {
+    padding: 1.5rem;
+    }
   
   .card-text p{
       font-weight: 400 !important;
   }
-  
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
   .listing-link{
       text-decoration: none;
   }
-  
+  .card-text {
+    color: #555;
+}
+.btn-primary {
+    border-radius: 1.5rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
   /* Card Decoration */
   
   .index-card{
       width: 20vw;
       height: 30vh;
-      border: 1px solid green;
       border-radius: 8px;
       margin: 2vh 2vw 2vh 2vw;
       /* margin: 2vw 2vh 2vw 2vh; */

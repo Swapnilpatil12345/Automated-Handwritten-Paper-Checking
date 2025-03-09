@@ -19,7 +19,7 @@
             <tbody>
                 <% let i=0; %>
                     <%for(let lst of allListings){%>
-                        <% if((lst.SubjectTeacher && currUser && currUser._id.equals(lst.SubjectTeacher._id)) || currUser._id.equals(Dean_ID)){ %>
+                        <% if((lst.SubjectTeacher && currUser && currUser._id.equals(lst.SubjectTeacher._id)) || (currUser.username === "dean")){ %>
                             <!-- remove above if statement ,if you want principal view -->
                             <% i++; %>
                                 <tr onclick="window.location.href='/papers/<%= lst._id %>';" style="cursor: pointer;">
@@ -55,11 +55,11 @@
             </tbody>
         </table>
 
-        <a href="/papers/download-summary" class="btn btn-success w-auto px-3">Download as Excel</a>
+        <a href="/excel/download-summary" class="btn btn-success w-auto px-3">Download as Excel</a>
 
         <br><br>
-        <!-- <div class="summary-btn" > -->
-            <!-- <a href="/papers/summaryindividual" class="btn btn-dark">Search Individual</a> -->
-            <!-- <br><br> -->
-        <!-- </div> -->
+        <!-- <div class="summary-btn" > 
+            <a href="/papers/summaryindividual" class="btn btn-dark">Search Individual</a>
+             <br><br>
+         </div> -->
     </div>

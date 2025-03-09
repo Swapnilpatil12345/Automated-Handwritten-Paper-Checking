@@ -16,7 +16,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
-const paperRoutes = require("./routes/papers.js"); // Adjust path if needed
+const excelRoutes = require("./routes/excel.js"); // Adjust path if needed
 const hierarchyRoutes = require('./routes/hierarchy'); // Adjust path if needed
 
 
@@ -75,7 +75,7 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     res.locals.currUser = req.user;
-    console.log(req.user);
+    // console.log(req.user);
     next();
 })
 
@@ -84,7 +84,7 @@ app.use((req,res,next)=>{
 
 app.use('/',userRouter);
 app.use('/papers',listingsRouter);
-app.use("/papers", paperRoutes);
+app.use('/excel', excelRoutes);
 app.use('/', hierarchyRoutes);
 
 app.all('*', (req, res, next) => {
