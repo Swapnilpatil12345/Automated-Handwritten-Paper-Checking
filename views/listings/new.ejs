@@ -1,0 +1,159 @@
+<% layout('/layouts/boilerplate') %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Add new paper</h3>
+    <br />
+    <form action="/papers" method="POST" onsubmit="prepareMarkingScheme()">
+      <!-- <h5>Student Info:</h5> -->
+      <div class="mb-3">
+        <label for="Name" class="form-label">Student's Name</label>
+        <input
+          type="text"
+          name="listing[Name]"
+          class="form-control"
+          placeholder="Martin Luther"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="Roll_Number" class="form-label"
+            >Student's Roll Number</label
+          >
+          <input
+            type="text"
+            name="listing[Roll_Number]"
+            class="form-control"
+            placeholder="232065"
+            required
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="PRN_Number" class="form-label"
+            >Student's PRN Number</label
+          >
+          <input
+            type="text"
+            name="listing[PRN_Number]"
+            class="form-control"
+            placeholder="22210392"
+            required
+          />
+        </div>
+      </div>
+
+      <br />
+      <hr />
+      <br />
+      <h5>Examination Info:</h5>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="Subject" class="form-label">Exam's Subject</label>
+          <select name="listing[Subject]" class="form-control" required>
+            <option>computer architecture</option>
+            <option>software robotics</option>
+            <option>computer networks</option>
+            <option>dbms</option>
+            <option>software engineering</option>
+            <option>computer graphics</option>
+            <option>Programming</option>
+            <option>mathematics</option>
+            <option>science</option>
+          </select>
+        </div>
+
+        <div class="mb-3 col-md-4">
+          <label for="MaxMarks" class="form-label">Max Marks of Exam</label>
+          <input
+            type="number"
+            name="listing[MaxMarks]"
+            class="form-control"
+            placeholder="20"
+            required
+          />
+        </div>
+
+        <div class="mb-3 col-md-4">
+          <label for="Class" class="form-label">Class</label>
+          <select name="listing[Class]" class="form-control" required>
+            <option>FY BTech Sem 1</option>
+            <option>FY BTech Sem 2</option>
+            <option>SY BTech Sem 1</option>
+            <option>SY BTech Sem 2</option>
+            <option>TY BTech Sem 1</option>
+            <option>TY BTech Sem 2</option>
+            <option>BTech Sem 1</option>
+            <option>BTech Sem 2</option>
+          </select>
+        </div>
+      </div>
+
+      <h5>Marking Scheme:</h5>
+      <div id="questions-container"></div>
+      <button
+        type="button"
+        class="btn btn-secondary mt-2"
+        onclick="addQuestion()"
+      >
+        Add Question
+      </button>
+
+      <!-- Hidden Input to Store Final Marking Scheme String -->
+      <input
+        type="hidden"
+        name="listing[MarkingScheme]"
+        id="markingSchemeInput"
+      />
+
+      <br />
+      <button type="submit" class="btn btn-dark add-btn mt-3 mb-3">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  let questionCount = 0;
+
+  function addQuestion() {
+    questionCount++;
+    let container = document.getElementById("questions-container");
+
+    let questionDiv = document.createElement("div");
+    questionDiv.classList.add("mb-3", "question-block");
+    questionDiv.innerHTML = `
+            <div class="d-flex align-items-center gap-3">
+    <h6 class="mb-0">Q${questionCount}</h6>
+
+    <label class="mb-0">Subquestions Count:</label>
+    <input type="number" class="form-control subquestion-count w-25" placeholder="Count" required>
+
+    <label class="mb-0">Marks for each:</label>
+    <input type="number" class="form-control subquestion-marks w-25" placeholder="Marks" required>
+</div>
+
+        `;
+    container.appendChild(questionDiv);
+  }
+
+  function prepareMarkingScheme() {
+    let markingScheme = [];
+    let questions = document.querySelectorAll(".question-block");
+
+    questions.forEach((q, index) => {
+      let qNum = index + 1;
+      let subCount = q.querySelector(".subquestion-count").value;
+      let subMarks = q.querySelector(".subquestion-marks").value;
+
+      markingScheme.push(
+        `Q${qNum}: ${subCount} subquestions (${subMarks} marks each)`
+      );
+    });
+
+    document.getElementById("markingSchemeInput").value =
+      markingScheme.join("; ");
+  }
+</script>

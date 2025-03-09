@@ -1,0 +1,35 @@
+{
+  "engines": {
+    "node": "v20.15.0"
+  },
+  "name": "jai-hind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "## Overview The **Automated Handwritten Exam Grading System** is designed to reduce the workload of examiners by automating the grading of handwritten exam answer sheets. This project streamlines the evaluation process using advanced AI models and a structured workflow.",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cloudinary": "^1.41.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "joi": "^17.13.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.9.2",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "openai": "^4.78.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^8.0.0"
+  }
+}

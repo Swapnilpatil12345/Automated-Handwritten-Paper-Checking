@@ -1,0 +1,21 @@
+<% layout('/layouts/boilerplate') %>
+
+
+<div class="container d-flex justify-content-center gap-3 m-1"></div>
+
+<h2 class="mb-4">Subject Teacher: <b><%=teacher.name%></b></h2>
+
+    <% for (let listing of listings) { %>
+        <% if (listing.Subject == teacher.subject) { %>
+            <a href="/<%=listing._id%>" class="card border w-25">  
+                <div class="card-body">
+                    <h5 class="card-title">Name: <%= listing.Name %></h5>
+                    <p class="card-text">Class: <%= listing.Class %></p>
+                    <p class="card-text">PRN: <%= listing.PRN_Number %></p>
+                    <p class="card-text">Subject: <%= listing.Subject %></p>
+                    <p class="card-text">Marks: <%= listing.MaxMarks %> / <%= listing.MaxMarks %></p>
+                </div>  
+            </a>  <!-- Properly closed -->
+        <% } %>
+    <% } %>
+</div>

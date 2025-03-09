@@ -1,0 +1,100 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="row mt-3">
+        <div class="col-8 offset-3">
+            <h2>Paper Details</h2> <br>
+        </div>
+        
+        
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">
+                        <%=listing.Name%>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>PRN Number : </td>
+                    <td>
+                        <%=listing.PRN_Number%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Class : </td>
+                    <td>
+                        <%=listing.Class%>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Roll Number : </td>
+                    <td>
+                        <%=listing.Roll_Number%>
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Subject : </td>
+                    <td>
+                        <%=listing.Subject%>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Subject Teacher : </td>
+                    <td>
+                        <%=listing.SubjectTeacher.username%>
+                    </td>
+                </tr>
+
+                                
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Max Obtained : </td>
+                    <td>
+                        <%=listing.MarksObtained%>
+                    </td>
+                </tr>
+                
+                
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Max Marks : </td>
+                    <td>
+                        <%=listing.MaxMarks%>
+                    </td>
+                </tr>
+                                
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <% if(listing.SubjectTeacher && currUser && currUser._id.equals(listing.SubjectTeacher._id)) {%>
+            <div class="btns row">
+                <form action="/papers/<%=listing._id%>?_method=Delete" method="post">
+                    <% if(currDate - listing.Date < 3) {%>
+                        <a href="/papers/<%=listing._id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">
+                            Edit
+                        </a>
+                    <% } %>
+                    <button class="btn btn-dark offset-3 add-btn">Delete</button>
+                </form>
+            </div>
+            <% } %>
+            <br>
+            <br>
+    </div>

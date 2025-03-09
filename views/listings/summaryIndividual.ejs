@@ -1,0 +1,60 @@
+<% layout('/layouts/boilerplate') %>
+    <h1>Summary</h1>
+    <div class="row row-cols-lg-3 row row-cols-md-2 row row-cols-sm-1" style="display: flex; justify-content: center; align-items: center; padding: 2vh 2vw 2vh 2vw;">
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">PRN</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Marks Obtained</th>
+                    <th scope="col">Max Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let i=0; %>
+                    <%for(let lst of allListings){%>
+                        <% if(lst.SubjectTeacher && currUser && currUser._id.equals(lst.SubjectTeacher._id)){ %>
+                            <!-- remove above if statement ,if you want principal view -->
+                            <% i++; %>
+                                <tr onclick="window.location.href='/papers/<%= lst._id %>';" style="cursor: pointer;">
+                                    <th scope="row">
+                                        <%=i%>
+                                    </th>
+                                        <td>
+                                            <%=lst.Name%>
+                                        </td>
+                                        <td>
+                                            <%= lst.Class %>
+                                        </td>
+                                        <td>
+                                            <%= lst.PRN_Number %>
+                                        </td>
+                                        <td>
+                                            <%= lst.Subject %>
+                                        </td>
+                                        <td>
+                                            <%= lst.MarksObtained %>
+                                        </td>
+                                        <td>
+                                            <%= lst.MaxMarks %>
+                                        </td>
+                                    </a>
+                                </tr>
+
+
+
+                                <%}%>
+                                    <%}%>
+
+            </tbody>
+        </table>
+        <br><br>
+        <!-- <div class="summary-btn" > -->
+            <a href="/papers/summaryindividual" class="btn btn-dark">Search Individual</a>
+            <br><br>
+        <!-- </div> -->
+    </div>

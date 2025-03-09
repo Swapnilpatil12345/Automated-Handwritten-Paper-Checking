@@ -1,0 +1,40 @@
+<nav class="navbar sticky-top navbar-expand-md bg-body-light border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-file-circle-check"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">All Papers</a>
+        </li>
+
+        <% if (typeof currUser !== "undefined" && currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/papers/summary">Summary</a>
+          </li>
+        <% } %>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/papers/new">Add New Papers</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <% if (!currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-dark edit-btn" href="/logout">Logout</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

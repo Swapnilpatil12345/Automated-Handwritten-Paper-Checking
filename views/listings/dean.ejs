@@ -1,0 +1,88 @@
+<% layout('/layouts/boilerplate') %>
+<div class="dean-page">
+    <h1> Dean Dashboard</h1>
+    <div class="container d-flex justify-content-center gap-3 m-5">
+        <% for(teacher of teachers){ %>
+            <div class="card border" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Teacher ID: <%=teacher.teacherid%> <%=teacher.name%></h5>
+                    <p class="card-text">
+                        class:
+                        <% for(class1 of teacher.assignedClasses) {%>
+                             <%=class1%>
+                        <% }%>
+                    </p>
+                    <p class="card-text">subject:
+                        <% for(subject of teacher.subject) {%>
+                            <%=subject%>, 
+                        <% }%> 
+                    </p>
+                </div>
+            </div>
+            <br>
+        <%} %>
+    </div>
+        <!-- Add New Teacher Form -->
+    <div class="container mt-5">
+        <h2>Add New Teacher</h2>
+        <form action="/subteacher/new" method="POST" class="border p-4 shadow-lg rounded mt-4 mb-4">
+            <div class="mb-3">
+                <label for="teacherid" class="form-label">Teacher ID:</label>
+                <input type="number" class="form-control" id="teacherid" name="teacher[teacherid]" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="teacher[name]" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subjects</label>
+                <select name="teacher[Subject]" class="form-control" required>
+                    <option>computer architecture</option>
+                    <option>software robotics</option>
+                    <option>computer networks</option>
+                    <option>dbms</option>
+                    <option>software engineering</option>
+                    <option>computer graphics</option>
+                    <option>Programming</option>
+                    <option>mathematics</option>
+                    <option>science</option>
+                  </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="assignedClasses" class="form-label">Assigned Classes (Comma-Separated):</label>
+                <select name="teacher[assignedClasses]" class="form-control" required>
+                    <option>FY BTech Sem 1</option>
+                    <option>FY BTech Sem 2</option>
+                    <option>SY BTech Sem 1</option>
+                    <option>SY BTech Sem 2</option>
+                    <option>TY BTech Sem 1</option>
+                    <option>TY BTech Sem 2</option>
+                    <option>BTech Sem 1</option>
+                    <option>BTech Sem 2</option>
+                  </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="branch" class="form-label">Branch:</label>
+                <select name="teacher[assignedClasses]" class="form-control" required>
+                    <option>computer engineering</option>
+                    <option>information technology</option>
+                    <option>electronics engineering</option>
+                    <option>civil engineering</option>
+                  </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Teacher</button>
+        </form>
+    </div>
+   
+</div>
+   

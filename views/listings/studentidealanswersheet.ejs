@@ -1,0 +1,22 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <div class="bdy">
+        <h3 class="studentanswersheet-h3">Please upload the Ideal Answersheet of Exam</h3>
+        <form action="/papers/<%=listing._id%>/idealanswersheet/" enctype="multipart/form-data" method="post" class="studentanswersheetform">
+            <label for="listing[IdealAnswerSheet]" class="custom-file-upload">
+                Upload File
+            </label>
+            <input id="listing[IdealAnswerSheet]" name="listing[IdealAnswerSheet]" type="file" required onchange="updateFileName()">
+            <span id="file-name" class="file-name">No file chosen</span>
+            <button class="btn btn-dark btn-submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const fileInput = document.getElementById('listing[IdealAnswerSheet]');
+            const fileNameDisplay = document.getElementById('file-name');
+            fileNameDisplay.textContent = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
+        }
+    </script>
+</body>

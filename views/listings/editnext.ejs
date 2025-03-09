@@ -1,0 +1,20 @@
+<% layout('/layouts/boilerplate') %>
+
+    <body>
+        <div class="bdy">
+            <div class="studentanswersheetform btns row cg">
+                <h2>Do you want to change the uploded answersheet</h2><br><br>
+
+                <a href="/papers/<%=id%>/">
+                    <div class="btn btn-dark">No, don't Change</div>
+                </a>
+                <br>
+                <a href="/papers/<%=id%>/studentanswersheet">
+                    <div class="btn edit-btn">Yes, Change</div>
+                </a>
+
+
+
+            </div>
+        </div>
+    </body>
