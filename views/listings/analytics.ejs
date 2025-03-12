@@ -1,0 +1,39 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1>Analytics Dashboard</h1>
+
+<div class="dashboard-container mb-5 mt-5">
+    <div class="card">
+        <h2>Total Students</h2>
+        <p><%= totalStudents %></p>
+    </div>
+
+    <div class="card">
+        <h2>Average Marks</h2>
+        <p><%= avgMarks %></p>
+    </div>
+
+    <div class="card">
+        <h2>Highest Marks</h2>
+        <p><%= highestMarks %></p>
+    </div>
+
+    <div class="card">
+        <h2>Lowest Marks</h2>
+        <p><%= lowestMarks %></p>
+    </div>
+</div>
+
+<!-- <% if (currUser.username.toLowerCase() === "dean") { %>
+    <h2>Subject-Wise Performance</h2>
+    <canvas id="subjectChart"></canvas>
+<% } else { %>
+    <h2>Student-Wise Performance</h2>
+    <canvas id="studentChart"></canvas>
+<% } %> -->
+
+<a href="/" class="btn btn-success m-5">Go Back</a>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+

@@ -6,6 +6,10 @@ const passportLocalMongoose = require('passport-local-mongoose');
 // const LocalStrategy = require('passport-local');
 
 const userSchema = new Schema({
+    role:{
+        type:String,
+        required:true
+    },
     email : {
         type : String,
         required:true,

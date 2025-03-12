@@ -3,7 +3,7 @@
   <div class="col-8 offset-2">
     <h3>Add new paper</h3>
     <br />
-    <form action="/papers" method="POST" onsubmit="prepareMarkingScheme()">
+    <form action="/papers" method="POST" onsubmit="prepareMarkingScheme()" class="needs-validation" novalidate>
       <!-- <h5>Student Info:</h5> -->
       <div class="mb-3">
         <label for="Name" class="form-label">Student's Name</label>
@@ -14,6 +14,7 @@
           placeholder="Martin Luther"
           required
         />
+        <div class="invalid-feedback">enter name</div>
       </div>
 
       <div class="row">
@@ -28,11 +29,11 @@
             placeholder="232065"
             required
           />
+          <div class="invalid-feedback">enter a unique rollnumber</div>
         </div>
         <div class="mb-3 col-md-6">
           <label for="PRN_Number" class="form-label"
-            >Student's PRN Number</label
-          >
+            >Student's PRN Number</label>
           <input
             type="text"
             name="listing[PRN_Number]"
@@ -40,6 +41,7 @@
             placeholder="22210392"
             required
           />
+          <div class="invalid-feedback">enter a unique prn number</div>
         </div>
       </div>
 
@@ -73,11 +75,12 @@
             placeholder="20"
             required
           />
+          <div class="invalid-feedback">enter marks</div>
         </div>
 
         <div class="mb-3 col-md-4">
           <label for="Class" class="form-label">Class</label>
-          <select name="listing[Class]" class="form-control" required>
+          <select name="listing[Class]" class="form-control" >
             <option>FY BTech Sem 1</option>
             <option>FY BTech Sem 2</option>
             <option>SY BTech Sem 1</option>

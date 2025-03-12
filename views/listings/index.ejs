@@ -2,9 +2,9 @@
 
 <h1 class="p-3">
     <% if(currUser && currUser.username.toLowerCase() === "dean") { %>
-        Dean's Dashboard
+        Dean's Dashboard <a href="/papers/analytics"> Analytics</a>
     <% } else { %>
-        Teacher's Dashboard
+        Teacher's Dashboard <a href="/papers/analytics"> Analytics</a>
     <% } %>
 </h1>
 
@@ -13,7 +13,7 @@
         <% if(currUser && currUser.username.toLowerCase() === "dean") { %>
             <!-- Show all listings for Dean -->
             <a href="/papers/<%= lst._id %>" class=" mt-2 mb-2 listing-link">
-                <div class="card col" style="width: 20rem;">
+                <div class="card col" style="width: 15rem;">
                     <div class="card-body">
                         <h4 class="card-title"><%= lst.Name %></h4>
                         <p class="card-text">

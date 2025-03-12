@@ -138,7 +138,11 @@
   }
   
   
-  
+  /* analytics */
+  .dashboard-container { display: flex; gap: 15px; }
+.card { padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+canvas { max-width: 600px; margin-top: 20px; }
+
   
   
   /* studentanswersheet */
