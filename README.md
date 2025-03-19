@@ -29,6 +29,27 @@ The **Automated Handwritten Exam Grading System** is designed to reduce the work
 
 ---
 
+**Example Prompt to Llama Model**
+
+You are an AI exam evaluator. Compare the following student answer with the model answer.  
+Assign marks out of 10 based on correctness, completeness, and clarity.  
+Provide a brief explanation for the grading.  
+
+Model Answer: "Newton's first law states that an object at rest stays at rest unless acted upon by an external force."  
+
+Student Answer: "Newton's first law says that things keep doing what they were doing unless something changes it."  
+
+Evaluate and assign marks.
+
+**Expected AI Output**
+less
+Copy
+Edit
+Marks: 7/10  
+Feedback: "The student answer correctly captures the essence of Newton's First Law but lacks precision.  
+Using scientific terms like 'object' and 'external force' would improve accuracy."  
+---
+
 ## Tech Stack
 ### Frontend
 - **HTML**, **CSS**, **EJS**
