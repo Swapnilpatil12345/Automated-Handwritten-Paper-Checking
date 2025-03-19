@@ -41,10 +41,7 @@ Student Answer: "Newton's first law says that things keep doing what they were d
 
 Evaluate and assign marks.
 
-**Expected AI Output**
-less
-Copy
-Edit
+Expected AI Output
 Marks: 7/10  
 Feedback: "The student answer correctly captures the essence of Newton's First Law but lacks precision.  
 Using scientific terms like 'object' and 'external force' would improve accuracy."  
